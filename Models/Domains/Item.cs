@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcommerceApi.Models.Domains
 {
@@ -25,5 +26,8 @@ namespace EcommerceApi.Models.Domains
         public int CameraMP { get; set; }
         [Required]
         public string Image { get; set; } = string.Empty;
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Price { get; set; }
     }
 }

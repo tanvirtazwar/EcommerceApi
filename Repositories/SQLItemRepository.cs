@@ -13,9 +13,15 @@ namespace EcommerceApi.Repositories
             this.itemDb = itemDb;
         }
 
-        public async Task<List<Item>> GetAllAsync()
+        public async Task<List<ItemSummary>> GetAllAsync()
         {
-            return await itemDb.Items.ToListAsync();
+            return await itemDb.Items.AsNoTracking().Select(x => new ItemSummary()
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Image = x.Image,
+                Price = x.Price
+            }).ToListAsync();
         }
 
         public async Task<Item?> GetByIDAsync(Guid id)
@@ -23,8 +29,9 @@ namespace EcommerceApi.Repositories
             return await itemDb.Items.FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public async Task<Item> CreateAsync(Item newItem)
+        public async Task<Item> AddAsync(Item newItem)
         {
+            newItem.Id = Guid.NewGuid();
             await itemDb.Items.AddAsync(newItem);
             await itemDb.SaveChangesAsync();
             return newItem;
@@ -51,18 +58,18 @@ namespace EcommerceApi.Repositories
             return updatedItem;
         }
 
-        public async Task<Item?> DeleteAsync(Guid id)
+        public async Task<Item?> RemoveAsync(Guid id)
         {
-            var item = await itemDb.Items.FirstOrDefaultAsync(i => i.Id == id);
+            var removedItem = await itemDb.Items.FirstOrDefaultAsync(i => i.Id == id);
 
-            if (item == null)
+            if (removedItem == null)
             {
                 return null;
             }
 
-            itemDb.Items.Remove(item);
+            itemDb.Items.Remove(removedItem);
             await itemDb.SaveChangesAsync();
-            return item;
+            return removedItem;
         }
     }
 }

@@ -23,6 +23,7 @@ namespace EcommerceApi.Models.Domains
         public string Rom { get; set; } = string.Empty;
         [Required]
         public int CameraMP { get; set; }
-        public string[] Images { get; set; } = new string[3];
+        [Required]
+        public string Image { get; set; } = string.Empty;
     }
 }

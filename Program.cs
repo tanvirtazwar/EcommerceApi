@@ -1,4 +1,5 @@
 using EcommerceApi.Data;
+using EcommerceApi.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddDbContext<ItemDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("EcommerceApiConnection"));
 });
+builder.Services.AddScoped<IItemRepository, SQLItemRepository>();
 
 var app = builder.Build();
 

@@ -1,14 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace EcommerceApi.Models.Domains
+namespace EcommerceApi.Models.Dtos
 {
-    public class Item
+    public class ItemDto
     {
-        [Key]
-        public Guid Id { get; set; }
         [Required]
-        [StringLength(30, ErrorMessage ="Name has to be maximum of 50 character")]
+        [StringLength(30, ErrorMessage = "Name has to be maximum of 50 character")]
         public string Name { get; set; } = string.Empty;
         [Required]
         [StringLength(30, ErrorMessage = "Brand Name has to be maximum of 50 character")]

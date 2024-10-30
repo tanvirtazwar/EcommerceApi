@@ -14,7 +14,7 @@ namespace EcommerceApi.Mappers
                 Color = dto.Color,
                 Ram = dto.Ram,
                 Rom = dto.Rom,
-                CameraMP = dto.CameraMP,
+                CameraMp = dto.CameraMp,
                 Image = dto.Image,
                 Price = dto.Price,
             };

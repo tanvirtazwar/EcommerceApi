@@ -6,7 +6,7 @@ namespace EcommerceApi.Repositories
     {
         Task<List<ItemSummary>> GetAllAsync();
 
-        Task<Item?> GetByIDAsync(Guid id);
+        Task<Item?> GetByIdAsync(Guid id);
 
         Task<Item> AddAsync(Item newItem);
 

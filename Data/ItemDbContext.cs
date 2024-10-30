@@ -5,12 +5,11 @@ namespace EcommerceApi.Data
 {
     public class ItemDbContext : DbContext
     {
-        public ItemDbContext(DbContextOptions<ItemDbContext> dbContextOptions)
+        public DbSet<Item> Items { get; set; }
+
+        public ItemDbContext(DbContextOptions<ItemDbContext> dbContextOptions) 
             : base(dbContextOptions)
         {
-            
         }
-
-        public DbSet<Item> Items { get; set; }
     }
 }

@@ -39,7 +39,7 @@ namespace EcommerceApi.Controllers
                     return StatusCode(500, createUser.Errors);
 
                 var roleResult =
-                    await userManager.AddToRoleAsync(appUser, "Customer");
+                    await userManager.AddToRoleAsync(appUser, "Seller");
 
                 return !roleResult.Succeeded ?
                     StatusCode(500, roleResult.Errors) :

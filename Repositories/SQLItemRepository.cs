@@ -4,15 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceApi.Repositories
 {
-    public class SQLItemRepository : IItemRepository
+    public class SqlItemRepository(ItemDbContext itemDb) : IItemRepository
     {
-        private readonly ItemDbContext itemDb;
-
-        public SQLItemRepository(ItemDbContext itemDb)
-        {
-            this.itemDb = itemDb;
-        }
-
         public async Task<List<ItemSummary>> GetAllAsync()
         {
             return await itemDb.Items.AsNoTracking().Select(x => new ItemSummary()
@@ -24,7 +17,7 @@ namespace EcommerceApi.Repositories
             }).ToListAsync();
         }
 
-        public async Task<Item?> GetByIDAsync(Guid id)
+        public async Task<Item?> GetByIdAsync(Guid id)
         {
             return await itemDb.Items.FirstOrDefaultAsync(i => i.Id == id);
         }
@@ -50,7 +43,7 @@ namespace EcommerceApi.Repositories
             item.Color = updatedItem.Color;
             item.Ram = updatedItem.Ram;
             item.Rom = updatedItem.Rom;
-            item.CameraMP = updatedItem.CameraMP;
+            item.CameraMp = updatedItem.CameraMp;
             item.Image = updatedItem.Image;
             item.Price = updatedItem.Price;
 

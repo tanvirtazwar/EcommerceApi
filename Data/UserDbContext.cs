@@ -5,14 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceApi.Data
 {
-    public class UserDbContext : IdentityDbContext<AppUser>
+    public class UserDbContext(DbContextOptions<UserDbContext> dbContextOptions)
+        : IdentityDbContext<AppUser>(dbContextOptions)
     {
-        public UserDbContext(DbContextOptions<UserDbContext> dbContextOptions) 
-            : base(dbContextOptions)
-        {
-            
-        }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

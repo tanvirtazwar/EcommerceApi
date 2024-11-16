@@ -48,11 +48,11 @@ builder.Services.AddSwaggerGen(option =>
 
 builder.Services.AddDbContext<ItemDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("EcommerceApiConnection"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("EcommerceApiConnection"));
 });
 builder.Services.AddDbContext<UserDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("EcommerceApiUserConnection"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("EcommerceApiUserConnection"));
 });
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>

@@ -1,5 +1,6 @@
 ﻿using EcommerceApi.Mappers;
 using EcommerceApi.Models.Dtos;
+using EcommerceApi.Querying;
 using EcommerceApi.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,13 +14,15 @@ namespace EcommerceApi.Controllers
     {
         [HttpGet]
         [ResponseCache(Duration = 10)]
-        public async Task<IActionResult> GetAllItemSummary()
+        public async Task<IActionResult> GetAllItemSummary
+            ([FromQuery] QueryObject queryObject)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var itemsSummary = await itemRepository.GetAllAsync();
+            var itemsSummary = 
+                await itemRepository.GetAllAsync(queryObject);
 
             return Ok(itemsSummary);
         }

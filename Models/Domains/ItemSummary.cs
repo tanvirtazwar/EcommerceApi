@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace EcommerceApi.Models.Domains
+﻿namespace EcommerceApi.Models.Domains
 {
     public class ItemSummary
     {

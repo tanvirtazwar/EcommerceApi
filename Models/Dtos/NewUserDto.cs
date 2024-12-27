@@ -1,9 +1,8 @@
-﻿namespace EcommerceApi.Models.Dtos
+﻿namespace EcommerceApi.Models.Dtos;
+
+public class NewUserDto
 {
-    public class NewUserDto
-    {
-        public string Username { get; set; } = null!;
-        public string Email { get; set; } = null!;
-        public string Token { get; set; } = null!;
-    }
+    public string Username { get; set; } = null!;
+    public string Email { get; set; } = null!;
+    public string Token { get; set; } = null!;
 }

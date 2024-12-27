@@ -1,19 +1,18 @@
 ﻿using EcommerceApi.Models.Domains;
 using EcommerceApi.Querying;
 
-namespace EcommerceApi.Repositories
+namespace EcommerceApi.Repositories;
+
+public interface IItemRepository
 {
-    public interface IItemRepository
-    {
-        Task<List<ItemSummary>> GetAllAsync
-            (QueryObject queryObject);
+    Task<List<ItemSummary>> GetAllAsync
+        (QueryObject queryObject);
 
-        Task<Item?> GetByIdAsync(Guid id);
+    Task<Item?> GetByIdAsync(Guid id);
 
-        Task<Item> AddAsync(Item newItem);
+    Task<Item> AddAsync(Item newItem);
 
-        Task<Item?> UpdateAsync(Guid id, Item updatedItem);
+    Task<Item?> UpdateAsync(Guid id, Item updatedItem);
 
-        Task<Item?> RemoveAsync(Guid id);
-    }
+    Task<Item?> RemoveAsync(Guid id);
 }

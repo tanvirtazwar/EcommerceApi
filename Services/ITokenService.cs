@@ -1,9 +1,8 @@
 ﻿using EcommerceApi.Models.User;
 
-namespace EcommerceApi.Services
+namespace EcommerceApi.Services;
+
+public interface ITokenService
 {
-    public interface ITokenService
-    {
-        string CreateToken(AppUser user);
-    }
+    string CreateToken(AppUser user);
 }

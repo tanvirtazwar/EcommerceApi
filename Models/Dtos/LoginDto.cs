@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EcommerceApi.Models.Dtos
+namespace EcommerceApi.Models.Dtos;
+
+public class LoginDto
 {
-    public class LoginDto
-    {
-        [Required]
-        public string UserName { get; set; } = string.Empty;
-        [Required]
-        public string Password { get; set; } = string.Empty;
-    }
+    [Required]
+    public string UserName { get; set; } = string.Empty;
+    [Required]
+    public string Password { get; set; } = string.Empty;
 }

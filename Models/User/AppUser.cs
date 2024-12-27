@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace EcommerceApi.Models.User
+namespace EcommerceApi.Models.User;
+
+public class AppUser : IdentityUser
 {
-    public class AppUser : IdentityUser
-    {
-    }
 }
